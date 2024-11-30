@@ -1,0 +1,33 @@
+package assets
+
+templ Scripts() {
+	<script>
+		const header = document.getElementById('header');
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 50) {
+				header.classList.add('bg-white', 'shadow-md');
+				header.classList.remove('bg-transparent');
+			} else {
+				header.classList.remove('bg-white', 'shadow-md');
+				header.classList.add('bg-transparent');
+			}
+		});
+
+		const navLinks = document.querySelectorAll('.nav-link');
+		navLinks.forEach(link => {
+			link.addEventListener('click', function() {
+				navLinks.forEach(item => item.classList.remove('active'));
+				this.classList.add('active');
+			});
+		});
+
+		const category = document.querySelectorAll('.category');
+		category.forEach(link => {
+			link.addEventListener('click', function() {
+				console.log('clicked');
+				category.forEach(item => item.classList.remove('active'));
+				this.classList.add('active');
+			});
+		});
+	</script>
+}

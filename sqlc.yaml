@@ -1,0 +1,21 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "./external/database/query"
+    schema: "./external/database/migrations"
+    gen:
+      go:
+        package: "db"
+        out: "./external/database/sqlc"
+        sql_package: "pgx/v5"
+        emit_json_tags: true
+        emit_empty_slices: false
+        emit_interface: true
+        emit_prepared_queries: false
+        emit_exact_table_names: false
+    database:
+      uri: "postgresql://root:secret@localhost:5432/kruty_craft?sslmode=disable"
+
+overrides: null
+plugins: []
+rules: []

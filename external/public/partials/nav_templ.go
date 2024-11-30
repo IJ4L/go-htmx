@@ -29,7 +29,7 @@ func Nav() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"w-full h-[50px] bg-red-500\"></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<header id=\"header\" class=\"fixed top-0 right-0 left-0 md:pt-0 transition-all duration-300 z-10\"><nav class=\"relative py-2 flex justify-center items-center text-black font-semibold\"><h1 class=\"absolute left-10 text-xl md:text-3xl font-bold\">Krusty<span class=\"text-pink-500\">Craft</span></h1><ul class=\"hidden md:flex justify-center space-x-10 py-4\"><li><a hx-get=\"/home\" hx-target=\"#content\" hx-swap=\"innerHTML\" class=\"nav-link hover:text-pink-500 cursor-pointer active\">Beranda</a></li><li><a hx-get=\"/shop\" hx-target=\"#content\" hx-swap=\"innerHTML\" class=\"nav-link hover:text-pink-500 cursor-pointer\">Toko</a></li><li><a hx-get=\"/contact\" hx-target=\"#content\" hx-swap=\"innerHTML\" class=\"nav-link hover:text-pink-500 cursor-pointer\">Kontak</a></li></ul></nav></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,0 +1,31 @@
+package admin
+
+import (
+	admin "github.com/ij4l/go-htmx/external/public/admin/component"
+	"github.com/ij4l/go-htmx/model"
+)
+
+templ Admin(products []model.Product) {
+	<!DOCTYPE html>
+	<html lang="id">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>KrustyAdmin</title>
+			<script src="https://cdn.jsdelivr.net/npm/htmx.org@1.7.0"></script>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+			<style type="text/css">
+          tr.htmx-swapping td {
+              opacity: 0;
+              transition: opacity 1s ease-out;
+          }
+      </style>
+		</head>
+		<body class="bg-gray-100">
+			<div id="admin" class="container mx-auto my-8">
+				@admin.AddProduct()
+				@admin.TableProduct(products)
+			</div>
+		</body>
+	</html>
+}

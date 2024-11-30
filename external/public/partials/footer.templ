@@ -1,5 +1,43 @@
 package partials
 
 templ Footer() {
-	<div class="bg-black w-full h-[256px]"></div>
+	<footer class="bg-[#1B1B1B] md:px-72 py-16 flex flex-col pl-10 md:flex-row">
+		<div class="flex flex-col">
+			<h1 class="text-xl md:text-3xl text-white font-bold">
+				Krusty<span class="text-pink-500">Craft</span>
+			</h1>
+			<p class="text-white text-xs mt-3">Kenalan lebih jauh</p>
+			<div class="mt-3 flex space-x-4">
+				<img class="size-6 cursor-pointer" src="http://localhost:8080/icons/ig.svg" alt="instagram.png"/>
+				<img class="size-6 cursor-pointer" src="http://localhost:8080/icons/fb.svg" alt="fb.png"/>
+				<img class="size-6 cursor-pointer" src="http://localhost:8080/icons/tiktok.svg" alt="tiktok.png"/>
+			</div>
+		</div>
+		<div class="flex flex-col md:flex-row md:space-x-24 md:ml-64">
+			<div class="mt-6 md:mt-0">
+				<p class="text-white">Informasi</p>
+				<ul class="mt-3">
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Tentang Kami</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Buket Balon</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Hampers</a></li>
+				</ul>
+			</div>
+			<div class="mt-6 md:mt-0">
+				<p class="text-white">Produk</p>
+				<ul class="mt-3">
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Buket Bunga</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Kontak Kami</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Tim Kami</a></li>
+				</ul>
+			</div>
+			<div class="mt-6 md:mt-0">
+				<p class="text-white">Kunjungi Kami</p>
+				<ul class="mt-3">
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Citraland Hertasning - Gowa</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Phone: 01234 567 890</a></li>
+					<li><a href="#" class="text-white text-xs hover:text-pink-600">Email: https://krustycraft.com</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 }

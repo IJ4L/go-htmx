@@ -1,0 +1,50 @@
+package landing
+
+import (
+	"github.com/ij4l/go-htmx/model"
+	"strconv"
+)
+
+templ Pagination(product model.ProductANTD) {
+	<div class="flex flex-row items-center justify-between border p-6 mt-8">
+		<div class="inline-flex xs:mt-0">
+			if product.PrevPage {
+				<button
+					class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900"
+					hx-get={ templ.EscapeString(string("/shop?page=" + strconv.Itoa(product.Page-1))) }
+					hx-target="#shop"
+					hx-swap="outerHTML"
+					hx-boost="true"
+				>
+					Sebelumnya
+				</button>
+			} else {
+				<button
+					class="flex items-center justify-center px-4 h-10 text-base font-medium text-black bg-white border rounded-s hover:bg-gray-200"
+				>
+					Sebelumnya
+				</button>
+			}
+			if product.NextPage {
+				<button
+					class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-e hover:bg-gray-900"
+					hx-get={ templ.EscapeString(string("/shop?page=" + strconv.Itoa(product.Page+1))) }
+					hx-target="#shop"
+					hx-swap="outerHTML"
+					hx-boost="true"
+				>
+					Selanjutnya
+				</button>
+			} else {
+				<button
+					class="flex items-center justify-center px-4 h-10 text-base font-medium text-black bg-white border rounded-e hover:bg-gray-200"
+				>
+					Selanjutnya
+				</button>
+			}
+		</div>
+		<span class="text-md text-gray-700 dark:text-gray-400">
+			Menampilkan <span class="font-semibold text-gray-900 dark:text-black">{ templ.EscapeString(string(strconv.Itoa(product.Page))) }</span> - <span class="font-semibold text-gray-900 dark:text-black">{ templ.EscapeString(string(strconv.Itoa(product.TotalShow))) }</span> dari <span class="font-semibold text-gray-900 dark:text-black">{ templ.EscapeString(string(strconv.Itoa(product.TotalProduct))) }</span> Hasil
+		</span>
+	</div>
+}

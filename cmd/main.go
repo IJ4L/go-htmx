@@ -4,7 +4,12 @@ import (
 	"log"
 
 	"github.com/ij4l/go-htmx/apps"
+	"github.com/ij4l/go-htmx/apps/admin"
+	"github.com/ij4l/go-htmx/apps/home"
+	"github.com/ij4l/go-htmx/apps/shop"
+	"github.com/ij4l/go-htmx/external/database"
 	"github.com/ij4l/go-htmx/internal/config"
+	"github.com/jackc/pgx/v5"
 )
 
 func main() {
@@ -13,12 +18,26 @@ func main() {
 		log.Fatalf("Cannot load configuration: %v", err)
 	}
 
-	server, err := apps.NewServer()
+	pgxConn, err := database.ConnectPostgreSql(config)
+	if err != nil {
+		log.Fatalf("Cannot connect to database: %v", err)
+	}
+
+	server, err := apps.NewServer(config, pgxConn)
 	if err != nil {
 		log.Fatalf("Cannot create server: %v", err)
 	}
 
-	if err := server.Start(config.ServerAddress); err != nil {
+	Initialize(server, pgxConn)
+
+	if err := server.Start(); err != nil {
 		log.Fatalf("Cannot start server: %v", err)
 	}
+}
+
+func Initialize(server *apps.Server, pgxConn *pgx.Conn) {
+	repo := apps.NewRepository(pgxConn)
+	home.InitializeHomeHandler(server.Router, &repo)
+	shop.InitializeShopHandler(server.Router, &repo)
+	admin.InitializeAdminHandler(server.Router, &repo)
 }

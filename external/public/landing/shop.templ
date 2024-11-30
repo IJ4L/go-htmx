@@ -1,0 +1,20 @@
+package landing
+
+import (
+	landing "github.com/ij4l/go-htmx/external/public/landing/component"
+	"github.com/ij4l/go-htmx/external/public/partials"
+	"github.com/ij4l/go-htmx/model"
+)
+
+templ Shop(product model.ProductANTD) {
+	<div id="shop">
+		@partials.HeroTemp("Shop")
+		<div class="flex flex-col md:flex-row justify-center p-8">
+			<div>
+				@landing.Store(product.Products)
+				@landing.Pagination(product)
+			</div>
+			@landing.Category()
+		</div>
+	</div>
+}

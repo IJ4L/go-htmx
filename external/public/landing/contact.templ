@@ -1,0 +1,13 @@
+package landing
+
+import (
+	landing "github.com/ij4l/go-htmx/external/public/landing/component"
+	"github.com/ij4l/go-htmx/external/public/partials"
+)
+
+templ Contact() {
+	<div id="contact">
+		@partials.HeroTemp("Contact")
+		@landing.AllContact()
+	</div>
+}

@@ -1,0 +1,33 @@
+package landing
+
+templ Category() {
+	<div class="xl:w-1/6 xl:ml-10 mt-10">
+		<p class="josefin-slab text-2xl font-semibold">Kategori Menu</p>
+		<ul class="mt-4 space-y-2 text-md">
+			<li>
+				<a
+					class="category font-regular hover:text-pink-600 cursor-pointer"
+					hx-get={ templ.EscapeString(string("shop?ctg=Bucket Bunga")) }
+					hx-target="#shop"
+					hx-swap="innerHTML"
+					hx-boost="true"
+				>Buket Bunga</a>
+			</li>
+			<li>
+				<a
+					class="category font-regular hover:text-pink-600 cursor-pointer"
+					hx-get={ templ.EscapeString(string("shop?ctg=Hampers")) }
+					hx-target="#shop"
+					hx-swap="innerHTML"
+					hx-boost="true"
+				>Hampers</a>
+			</li>
+			<li>
+				<a
+					href={ templ.URL("https://wa.me/6283138700671?text=Saya Ingin Memesan Pesanan Khusus") }
+					class="font-regular hover:text-pink-600 cursor-pointer"
+				>Pesanan Khusus</a>
+			</li>
+		</ul>
+	</div>
+}

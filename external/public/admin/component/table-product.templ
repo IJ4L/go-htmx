@@ -1,0 +1,43 @@
+package admin
+
+import (
+	"github.com/ij4l/go-htmx/model"
+	"strconv"
+)
+
+templ TableProduct(products []model.Product) {
+	<div>
+		<h1 class="text-3xl font-semibold text-center mb-6">Daftar Produk</h1>
+		<table id="productTable" class="min-w-full bg-white border border-gray-200 shadow-lg">
+			<thead>
+				<tr class="bg-gray-200">
+					<th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Gambar</th>
+					<th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Nama Produk</th>
+					<th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Harga</th>
+					<th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Kategori</th>
+					<th class="py-3 px-6 text-left text-sm font-medium text-gray-700">Aksi</th>
+				</tr>
+			</thead>
+			<tbody id="productBody">
+				for _, product := range products {
+					<tr>
+						<td class="py-3 px-6">
+							<img src={ templ.EscapeString(string("http://localhost:8080/storages/" + product.ImageUrl)) } alt={ product.Name } class="w-20 h-20 object-cover rounded-md"/>
+						</td>
+						<td class="py-3 px-6">{ product.Name }</td>
+						<td class="py-3 px-6">Rp. { product.Price }</td>
+						<td class="py-3 px-6">{ product.Category }</td>
+						<td class="py-3 px-6">
+							<button
+								class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+								hx-target="closest tr"
+								hx-swap="outerHTML swap:1s"
+								hx-delete={ templ.EscapeString(string("/admin/delete-product/" + strconv.Itoa(int(product.ProductID)))) }
+							>Hapus</button>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}

@@ -1,0 +1,31 @@
+package landing
+
+import "github.com/ij4l/go-htmx/model"
+
+templ Store(products []model.Product) {
+	<section id="store">
+		<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-24">
+			for _, product := range products {
+				<a
+					href={ templ.URL("https://wa.me/6283138700671?text=Saya Ingin Memesan " + product.Name + " dengan Harga " + product.Price) }
+					class="relative flex flex-col justify-center items-center hover:bg-gray-100 p-4 transition-all duration-200 rounded-lg cursor-pointer group"
+					hx-target="#content"
+					hx-swap="outerHTML"
+				>
+					<img
+						class="h-[220px] w-[257px] rounded-lg"
+						src={ templ.EscapeString("http://localhost:8080/storages/" + product.ImageUrl) }
+						alt={ product.Name }
+					/>
+					<div
+						class="absolute top-0 left-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black text-white text-xs px-2 py-1 rounded-md"
+					>
+						Klik untuk Memesan
+					</div>
+					<p class="font-semibold mt-2 text-center leading-tight">{ product.Name }</p>
+					<p class="font-normal text-[#484848]">{ product.Price }</p>
+				</a>
+			}
+		</div>
+	</section>
+}

@@ -1,0 +1,21 @@
+package landing
+
+import (
+	landing "github.com/ij4l/go-htmx/external/public/landing/component"
+	"github.com/ij4l/go-htmx/model"
+)
+
+templ Home(products []model.Product) {
+	<div id="home">
+		@landing.Hero()
+		@landing.Advantage()
+		@landing.Sample()
+		<div class="flex flex-col  justify-center p-8 md:p-24 xl:px-64">
+			<div class="text-center mb-20">
+				<h1 class="dancing-script text-xl text-pink-600">Paling Trendi</h1>
+				<p class="josefin-slab text-4xl font-semibold mt-2">PRODUK PILIHAN</p>
+			</div>
+			@landing.Store(products)
+		</div>
+	</div>
+}
