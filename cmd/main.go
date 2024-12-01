@@ -28,7 +28,7 @@ func main() {
 		log.Fatalf("Cannot create server: %v", err)
 	}
 
-	Initialize(server, pgxConn)
+	Initialize(server, pgxConn) 
 
 	if err := server.Start(); err != nil {
 		log.Fatalf("Cannot start server: %v", err)
