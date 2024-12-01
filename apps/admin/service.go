@@ -44,7 +44,7 @@ func (s AdminService) addProduct(inp AddProduct, ctx *gin.Context) error {
 		return err
 	}
 
-	imgUri := "./external/public/assets/storages/" + randStr + filepath.Ext(file.Filename)
+	imgUri := "/app/public/assets/storages/" + randStr + filepath.Ext(file.Filename)
 	if err := ctx.SaveUploadedFile(file, imgUri); err != nil {
 		return err
 	}
