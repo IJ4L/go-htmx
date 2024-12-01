@@ -28,8 +28,9 @@ jobs:
         with:
           host: ${{ secrets.VPS_IP }}
           username: ${{ secrets.VPS_USER }}
-          password: ${{ secrets.VPS_PASSWORD }}
+          key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           script: |
             docker pull ijull/go-htmx:v1
-            cd go-htmx
+            cd /path/to/go-htmx
             docker-compose up -d --build
+
