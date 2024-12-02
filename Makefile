@@ -38,3 +38,7 @@ templ:
 serve:
 	go run cmd/main.go
 
+ci:
+	git add .
+	git commit -m "fix: ci/cd pipeline"
+	git push -u origin main

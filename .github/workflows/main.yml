@@ -29,6 +29,7 @@ jobs:
           host: ${{ secrets.VPS_IP }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
+          port: 22
           script: |
             docker pull ijull/go-htmx:v1
             cd /path/to/go-htmx
