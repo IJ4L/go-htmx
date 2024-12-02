@@ -31,6 +31,6 @@ jobs:
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker pull ijull/go-htmx:v1
-            docker-compose up -d --build
+            sudo docker pull ijull/go-htmx:v1
+            sudo docker-compose up -d --build
 
