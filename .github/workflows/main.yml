@@ -34,4 +34,5 @@ jobs:
             docker pull ijull/go-htmx:v1
             cd /path/to/go-htmx
             docker-compose up -d --build
+            ls
 
