@@ -31,7 +31,15 @@ jobs:
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            sudo docker system prune -af
-            sudo docker pull ijull/go-htmx:v1
-            sudo docker run -d --name go-htmx-krusty ijull/go-htmx:v1
+            sudo docker stop go-htmx-api-1
+            sudo docker rm go-htmx-api-1
+
+            sudo docker stop go-htmx-postgres-1
+            sudo docker rm go-htmx-postgres-1
+
+            sudo docker rmi go-htmx-api
+
+            sudo git clone https://github.com/IJ4L/go-htmx
+            cd go-htmx
+            sudo docker-compose up -d
             sudo docker ps -a
