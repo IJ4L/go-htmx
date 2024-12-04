@@ -12,7 +12,7 @@ services:
     networks:
       - mynetwork
     dns:
-      - 8.8.8.8  # Google DNS
+      - 8.8.8.8
 
   api:
     build:
@@ -29,7 +29,7 @@ services:
     networks:
       - mynetwork
     dns:
-      - 8.8.8.8  # Google DNS
+      - 8.8.8.8 
 
 networks:
   mynetwork:

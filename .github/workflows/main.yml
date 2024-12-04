@@ -40,4 +40,4 @@ jobs:
             docker load < /tmp/go-htmx.tar
             docker stop go-htmx || true
             docker rm go-htmx || true
-            docker run -d --name go-htmx -p 8003:8003 go-htmx:latest
+            docker run -d --name go-htmx -p 8080:8080 go-htmx:latest
