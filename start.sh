@@ -14,7 +14,7 @@ else
 fi
 
 echo "DB_SOURCE: $DB_SOURCE"
-/app/migrate -path /app/migration -database "$DB_SOURCE" -verbose up
+/app/migrate -path /app/migration -database postgresql://root:secret@postgres:5432/kruty_craft?sslmode=disable -verbose up
 
 echo "start the app"
 exec "$@"
