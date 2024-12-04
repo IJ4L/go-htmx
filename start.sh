@@ -4,6 +4,8 @@ set -e
 
 echo "run db migration"
 
+chmod 644 /app/app.env
+
 ls -l
 
 source /app/app.env
