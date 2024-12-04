@@ -30,5 +30,6 @@ jobs:
           port: 22
           script: |
             docker pull ijull/go-htmx:v1
-            cd go-htmx
-            docker-compose up -d --build
+            docker stop go-htmx || true
+            docker rm go-htmx || true
+            docker run -d --name go-htmx -p 8080:8080 ijull/go-htmx:v1
