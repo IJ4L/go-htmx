@@ -4,7 +4,7 @@ set -e
 
 echo "run db migration"
 
-ls -l
+ls -la /app
 
 if [ -f /app/app.env ]; then
     source /app/app.env
