@@ -11,6 +11,8 @@ services:
       - POSTGRES_DB=kruty_craft
     networks:
       - mynetwork
+    dns:
+      - 8.8.8.8  # Google DNS
 
   api:
     build:
@@ -26,7 +28,9 @@ services:
     command: [ "/app/main" ]
     networks:
       - mynetwork
+    dns:
+      - 8.8.8.8  # Google DNS
 
 networks:
-  mynetwork: 
-    driver: bridge 
+  mynetwork:
+    driver: bridge
