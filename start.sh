@@ -4,11 +4,13 @@ set -e
 
 echo "run db migration"
 
-if [ -f /app/.env ]; then
-    source /app/.env
-    echo "source /app/.env"
+ls -l
+
+if [ -f /app/app.env ]; then
+    source /app/app.env
+    echo "source /app/app.env"
 else
-    echo "/app/.env does not exist"
+    echo "/app/app.env does not exist"
 fi
 
 echo "DB_SOURCE: $DB_SOURCE"
