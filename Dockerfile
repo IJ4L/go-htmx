@@ -9,7 +9,7 @@ FROM alpine:3.18
 WORKDIR /app
 COPY --from=builder /app/main .
 COPY --from=builder /app/migrate.linux-amd64 ./migrate
-COPY app.env .
+COPY .env .
 COPY external/public/ public/
 COPY start.sh .
 COPY wait-for.sh .
