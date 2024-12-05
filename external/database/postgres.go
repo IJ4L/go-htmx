@@ -14,7 +14,7 @@ func ConnectPostgreSql(data config.Config) (db *pgx.Conn, err error) {
 	conn, err := pgx.Connect(context.Background(), dsn)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
-		return nil, err
+		return nil, fmt.Errorf("Unable to connect to database: %v", err)
 	}
 
 	return conn, nil
