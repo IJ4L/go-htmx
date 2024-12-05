@@ -22,6 +22,8 @@ jobs:
             sudo docker volume prune -f
             sudo docker network prune -f
 
+            sudo rm -rf go-htmx
+
             sudo git clone https://github.com/IJ4L/go-htmx
             sudo cd go-htmx
             sudo docker-compose up -d
