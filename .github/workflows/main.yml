@@ -18,13 +18,10 @@ jobs:
           key: ${{ secrets.VPS_SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            sudo docker prune -a -f
-            sudo docker volume prune -f
-            sudo docker network prune -f
-
+            sudo docker system prune -a --volumes
             sudo rm -rf go-htmx
 
             sudo git clone https://github.com/IJ4L/go-htmx
-            sudo cd go-htmx
+            cd go-htmx
             sudo docker-compose up -d
             sudo docker ps -a
