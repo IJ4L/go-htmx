@@ -22,7 +22,7 @@ templ TableProduct(products []model.Product) {
 				for _, product := range products {
 					<tr>
 						<td class="py-3 px-6">
-							<img src={ templ.EscapeString(string("http://localhost:8080/storages/" + product.ImageUrl)) } alt={ product.Name } class="w-20 h-20 object-cover rounded-md"/>
+							<img src={ templ.EscapeString(string("https://krustycraft.my.id/storages/" + product.ImageUrl)) } alt={ product.Name } class="w-20 h-20 object-cover rounded-md"/>
 						</td>
 						<td class="py-3 px-6">{ product.Name }</td>
 						<td class="py-3 px-6">Rp. { product.Price }</td>

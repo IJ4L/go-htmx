@@ -44,9 +44,9 @@ func TableProduct(products []model.Product) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(templ.EscapeString(string("http://localhost:8080/storages/" + product.ImageUrl)))
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(templ.EscapeString(string("https://krustycraft.my.id/storages/" + product.ImageUrl)))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `external/public/admin/component/table-product.templ`, Line: 25, Col: 98}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `external/public/admin/component/table-product.templ`, Line: 25, Col: 102}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -59,7 +59,7 @@ func TableProduct(products []model.Product) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(product.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `external/public/admin/component/table-product.templ`, Line: 25, Col: 119}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `external/public/admin/component/table-product.templ`, Line: 25, Col: 123}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {

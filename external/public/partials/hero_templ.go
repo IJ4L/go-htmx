@@ -29,7 +29,7 @@ func HeroTemp(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"relative\"><img class=\"w-full hidden xl:inline\" src=\"http://localhost:8080/images/bread.svg\" alt=\"bread.svg\"><div class=\"xl:absolute bg-pink-100 xl:bg-transparent py-10 xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2 xl:mt-10 mt-20 text-center\"><h1 class=\"text-4xl md:text-5xl font-bold dancing-script\">Menu ")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"relative\"><img class=\"w-full hidden xl:inline\" src=\"https://krustycraft.my.id/images/bread.svg\" alt=\"bread.svg\"><div class=\"xl:absolute bg-pink-100 xl:bg-transparent py-10 xl:top-1/2 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:-translate-y-1/2 xl:mt-10 mt-20 text-center\"><h1 class=\"text-4xl md:text-5xl font-bold dancing-script\">Menu ")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
