@@ -1,38 +1,22 @@
 version: '3.8'
-
 services:
   postgres:
     image: postgres:12-alpine
     ports:
       - "5432:5432"
-    container_name: postgres
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=kruty_craft
-    networks:
-      - mynetwork
-    dns:
-      - 8.8.8.8
-
   api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: go-htmx
     ports:
       - "8080:8080"
     environment:
-      - DB_SOURCE=${DB_SOURCE}
+      - DB_SOURCE=postgresql://root:secret@postgres:5432/kruty_craft?sslmode=disable
     depends_on:
       - postgres
     entrypoint: [ "/app/wait-for.sh", "postgres:5432", "--", "/app/start.sh" ]
-    command: [ "/app/main" ]
-    networks:
-      - mynetwork
-    dns:
-      - 8.8.8.8 
-
-networks:
-  mynetwork:
-    driver: bridge
+    command: [ "/app/main" ] 
