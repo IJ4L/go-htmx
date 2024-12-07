@@ -29,7 +29,6 @@ func main() {
 	}
 
 	Initialize(server, pgxConn)
-
 	if err := server.Start(); err != nil {
 		log.Fatalf("Cannot start server: %v", err)
 	}
