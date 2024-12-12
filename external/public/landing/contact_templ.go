@@ -38,7 +38,7 @@ func Contact() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = partials.HeroTemp("Contact").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = partials.HeroTemp("Kontak").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
