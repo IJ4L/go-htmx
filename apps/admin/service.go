@@ -44,7 +44,7 @@ func (s AdminService) addProduct(inp AddProduct, ctx *gin.Context) error {
 		return err
 	}
 
-	imgUri := "/home/ijulyy/go-htmx/external/public/assets/storages/" + randStr + filepath.Ext(file.Filename)
+	imgUri := "external/public/assets/storages/" + randStr + filepath.Ext(file.Filename)
 	if err := ctx.SaveUploadedFile(file, imgUri); err != nil {
 		return err
 	}
@@ -64,7 +64,7 @@ func (s AdminService) deleteProduct(inp int) error {
 		return fmt.Errorf("failed to get product: %w", err)
 	}
 
-	imagePath := fmt.Sprintf("/home/ijulyy/go-htmx/external/public/assets/storages/%s", product.ImageUrl)
+	imagePath := fmt.Sprintf("external/public/assets/storages/%s", product.ImageUrl)
 	if _, err := os.Stat(imagePath); os.IsNotExist(err) {
 		return fmt.Errorf("image not found: %w", err)
 	}

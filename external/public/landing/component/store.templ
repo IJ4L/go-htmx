@@ -4,13 +4,22 @@ import "github.com/ij4l/go-htmx/model"
 
 templ Store(products []model.Product) {
 	<section id="store">
+		<dialog id="myDialog">
+			<form method="dialog" class="p-10 rounded-lg flex flex-col items-center justify-center">
+				<img id="dialogProductImage" class="w-96 h-96 rounded-lg"/>
+				<a href={ templ.URL("https://wa.me/62895321935303?text=Saya Ingin Memesan produknya kak") }
+				hx-target="#content"
+					hx-swap="outerHTML"
+				class="w-full py-4 mt-2 bg-[#e05c7b] text-black rounded-lg flex items-center justify-center text-white" type="submit">Pesan Sekarang</a>
+				<button class="w-full py-4 mt-2  text-black rounded-lg" type="submit">Batal</button>
+			</form>
+		</dialog>
 		<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-y-24">
 			for _, product := range products {
-				<a
-					href={ templ.URL("https://wa.me/6283138700671?text=Saya Ingin Memesan " + product.Name + " dengan Harga " + product.Price) }
+				<div
+					id="btn_dialog"
 					class="relative flex flex-col justify-center items-center hover:bg-gray-100 p-4 transition-all duration-200 rounded-lg cursor-pointer group"
-					hx-target="#content"
-					hx-swap="outerHTML"
+					data-imageUrl={ product.ImageUrl }
 				>
 					<img
 						class="h-[220px] w-[257px] rounded-lg"
@@ -24,8 +33,21 @@ templ Store(products []model.Product) {
 					</div>
 					<p class="font-semibold mt-2 text-center leading-tight">{ product.Name }</p>
 					<p class="font-normal text-[#484848]">Rp.{ product.Price }</p>
-				</a>
+				</div>
 			}
 		</div>
 	</section>
+	<script>
+		const dialog = document.getElementById('myDialog');
+		const dialogProductImage = document.getElementById('dialogProductImage');
+		
+		document.querySelectorAll('#btn_dialog').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const imageUrl = btn.getAttribute('data-imageUrl');
+
+				dialogProductImage.src = 'https://krustycraft.my.id/storages/' + imageUrl;
+				dialog.showModal();
+			});
+		});	
+	</script>
 }
