@@ -15,7 +15,7 @@ import (
 func main() {
 	config, err := config.LoadConfig("app.env")
 	if err != nil {
-		log.Fatalf("Cannot load configuration: %v", err)
+ 		log.Fatalf("Cannot load configuration: %v", err)
 	}
 
 	pgxConn, err := database.ConnectPostgreSql(config)

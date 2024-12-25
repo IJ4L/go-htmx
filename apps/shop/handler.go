@@ -26,7 +26,6 @@ func (sh ShopHandler) GetShop(ctx *gin.Context) {
 	}
 
 	ctgStr := ctx.DefaultQuery("ctg", "Bucket Bunga")
-
 	products, err := sh.hs.getProductsByCategory(ctgStr, 4, page-1)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

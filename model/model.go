@@ -4,6 +4,7 @@ import (
 	"time"
 
 	db "github.com/ij4l/go-htmx/external/database/sqlc"
+	"github.com/ij4l/go-htmx/internal/utils"
 )
 
 type Product struct {
@@ -22,7 +23,7 @@ type ProductANTD struct {
 	PrevPage     bool
 	TotalShow    int
 	TotalProduct int
-	Products      []Product
+	Products     []Product
 }
 
 func New(product db.Product) Product {
@@ -30,7 +31,7 @@ func New(product db.Product) Product {
 		ProductID: product.ProductID,
 		Name:      product.Name,
 		Category:  product.Category.String,
-		Price:     product.Price.Int.String(),
+		Price:     utils.ConvertToIDR(product.Price.Int.Int64()),
 		ImageUrl:  product.ImageUrl.String,
 		CreatedAt: product.CreatedAt.Time,
 		UpdatedAt: product.UpdatedAt.Time,
