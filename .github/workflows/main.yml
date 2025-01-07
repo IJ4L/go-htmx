@@ -20,6 +20,3 @@ jobs:
           script: |
             sudo rm -rf go-htmx
             sudo git clone https://github.com/IJ4L/go-htmx
-            cd go-htmx
-            screen
-            make serve
